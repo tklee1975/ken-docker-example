@@ -1,1 +1,5 @@
+# VS Code Setting 
 .vscode
+
+# Package download from Composer 
+vendor/

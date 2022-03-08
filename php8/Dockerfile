@@ -9,3 +9,4 @@ COPY src/ .
 
 # Open the 80 port 
 EXPOSE 80
+
