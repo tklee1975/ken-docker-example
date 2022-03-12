@@ -17,3 +17,9 @@ Basic Docker Knowledge:
     https://www.youtube.com/watch?v=WcQ3-M4-jik
     https://www.youtube.com/watch?v=gAkwW2tuIqE
 
+
+## Notes 
+- Stop: State in Container is kept 
+- Terminate / Remove: All clean 
+- Volume Mount : Keep the changes 
+- 
