@@ -1,0 +1,12 @@
+# Base on alpine OS 
+FROM alpine:latest 
+
+# 
+WORKDIR /user/local/bin 
+
+# Make simple hello script
+RUN echo "echo \"Hello Alpine `date` \"" > ./hello.sh 
+RUN chmod u+x *.sh
+
+# Run the hello script 
+ENTRYPOINT ["sh", "./hello.sh"]

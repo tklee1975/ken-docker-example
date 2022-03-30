@@ -1,0 +1,34 @@
+# Version of the docker-compose 
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: myroot
+      MYSQL_DATABASE: my_db
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbpassword
+    
+    volumes:
+     - ./src/initdb:/docker-entrypoint-initdb.d
+  
+  web:
+    # Path to dockerfile.
+    # '.' represents the current directory in which
+    # docker-compose.yml is present.
+    build: .
+
+    # host port : container port
+    ports:
+      - "8881:80"
+
+    # Environment variables
+    environment:
+      DEBUG: 1
+      MYSQL_DATABASE: my_db
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbpassword
+
+    # Mount volume 
+    volumes:
+      - ./src:/var/www/html
