@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  # Database Container
+  db:
+    image: mysql:8.0.23
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: wpdb
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: 123456
+    ports:
+      - 9306:3306
+  
+  # Adminer 
+  admin:
+    image: adminer
+    ports:
+      - 9001:8080
+      
+  # WordPress Container
+  wordpress:
+    image: wordpress
+    ports:
+      - 9000:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: 123456
+      WORDPRESS_DB_NAME: wpdb
